@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.kink3d.mirrors": "file:D:/Billy-ITS/Riset Manuver/kMirrors-master",
     "com.unity.collab-proxy": "1.17.1",
     "com.unity.ide.rider": "3.0.15",
     "com.unity.ide.visualstudio": "2.0.16",
