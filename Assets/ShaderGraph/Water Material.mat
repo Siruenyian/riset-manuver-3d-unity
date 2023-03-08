@@ -66,6 +66,7 @@ Material:
     - _Reflection_Refraction: 0.12
     - _Refraction: 0.06
     - _Smoothness: 0.9
+    - _Tilecount: 0.3
     - _Water_Lerp: 0.5
     - _Wave: 0.08
     m_Colors:
