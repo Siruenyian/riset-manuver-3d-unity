@@ -10,7 +10,7 @@ public class JumpAgent : MonoBehaviour
     [Header("Jump Settings")]
 
     [Tooltip("Initial jump force")]
-    public float jumpForce = 110f;
+    public float jumpForce = 10f;
     [Tooltip("Continuous jump force")]
     public float jumpAccel = 10f;
     [Tooltip("Max jump up time")]
@@ -35,6 +35,9 @@ public class JumpAgent : MonoBehaviour
     Vector3 input = new Vector3();
     private float coyoteTimeCounter, jumpBufferCounter, startJumpTime, endJumpTime;
     private bool wantingToJump = false, jumpCooldownOver = true;
+
+    [Tooltip("Torque")]
+    public float torque = 0.3f;
     //Variables
     public Rigidbody rb;
 
@@ -47,7 +50,7 @@ public class JumpAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         wantingToJump = Input.GetKey(jump);
     }
 
@@ -92,9 +95,10 @@ public class JumpAgent : MonoBehaviour
         input = input.normalized;
         Vector3 forwardVel = transform.forward * currentSpeed * input.z;
         Vector3 horizontalVel = transform.right * currentSpeed * input.x;
+        rb.AddTorque(new Vector3(0, input.y * torque, 0), ForceMode.Impulse);
         rb.velocity = horizontalVel + forwardVel + new Vector3(0, rb.velocity.y, 0);
 
-        rb.AddForce(new Vector3(0, -extraGravity, 0), ForceMode.Impulse);
+        rb.AddForce(new Vector3(0, -extraGravity, 0), ForceMode.Force);
     }
     private void jumpCoolDownCountdown()
     {

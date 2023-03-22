@@ -11,6 +11,9 @@ public class Buoyant_Object : MonoBehaviour
     public int floaterCount = 1;
     public float waterDrag = 0.99f;
     public float waterAngularDrag = 0.5f;
+    [SerializeField]
+    private float wavefactor=1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +24,10 @@ public class Buoyant_Object : MonoBehaviour
     void Update()
     {
         rigidbody.AddForceAtPosition(Physics.gravity/floaterCount, transform.position, ForceMode.Acceleration);
-        float waveHeight = 0f;
+        float waveHeight = Mathf.Sin(Mathf.PI * 2 * Time.time * wavefactor);
+        Debug.Log("transform vs sin value: "+transform.position.y+ " "+waveHeight);
         // perkiraan bahwa posisi < 0 itu dibawah air
-        if (transform.position.y<waveHeight)
+        if (transform.position.y<=waveHeight)
         {
             float displacementMultiplier = Mathf.Clamp01((waveHeight - transform.position.y) / depthBeforeSubmerged) * displacementAmount;
             rigidbody.AddForceAtPosition(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f),transform.position, ForceMode.Acceleration);
