@@ -24,8 +24,9 @@ public class Buoyant_Object : MonoBehaviour
     void Update()
     {
         rigidbody.AddForceAtPosition(Physics.gravity/floaterCount, transform.position, ForceMode.Acceleration);
-        float waveHeight = Mathf.Sin(Mathf.PI * 2 * Time.time * wavefactor);
-        Debug.Log("transform vs sin value: "+transform.position.y+ " "+waveHeight);
+        float waveHeight = 0;
+            //Mathf.Sin(Mathf.PI * 2 * Time.time * wavefactor);
+        //Debug.Log("transform vs sin value: "+transform.position.y+ " "+waveHeight);
         // perkiraan bahwa posisi < 0 itu dibawah air
         if (transform.position.y<=waveHeight)
         {

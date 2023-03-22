@@ -73,7 +73,7 @@ public class JumpAgent : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
 
         //there is a problem with coyotetime, where it will go down to minus for some reason
-        Debug.Log(coyoteTimeCounter + " " + jumpBufferCounter + " " + jumpCooldownOver);
+        //Debug.Log(coyoteTimeCounter + " " + jumpBufferCounter + " " + jumpCooldownOver);
         
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && jumpCooldownOver)
         {
@@ -107,7 +107,7 @@ public class JumpAgent : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == groundTag)
+        if (other.gameObject.CompareTag(groundTag))
             handleHitGround();
     }
 
