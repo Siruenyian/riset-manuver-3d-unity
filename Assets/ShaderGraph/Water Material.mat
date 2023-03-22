@@ -42,6 +42,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: b1fac3b80a2d95d46990cce6d6e65530, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RippleTexture2D:
+        m_Texture: {fileID: 8400000, guid: d2fcf0e39795a4a4f9af93db9aed24f6, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -58,20 +62,22 @@ Material:
     m_Floats:
     - _Depth: 2
     - _Depth_Fade: 0.1
-    - _Foam: 0.1
+    - _Foam: 0.3
     - _Foam_Scale: 3
     - _Normal_Strength: 0.4
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Reflection_Refraction: 0.12
     - _Refraction: 0.06
+    - _Ripple_Strenght: 1
     - _Smoothness: 0.9
-    - _Tilecount: 0.3
+    - _Tilecount: 0.1
     - _Water_Lerp: 0.5
     - _Wave: 0.08
     m_Colors:
     - _Albedo: {r: 0.73, g: 1, b: 0.9138333, a: 0}
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _RippleRpos: {r: 0, g: 0, b: 0, a: 0}
     - _UV: {r: 4, g: 4, b: 0.21, a: 0.93}
     - _UV1: {r: 4, g: 4, b: -0.03, a: 0.4}
     - _UV2: {r: 6, g: 6, b: 0, a: 0}
